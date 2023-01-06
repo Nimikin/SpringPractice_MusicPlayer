@@ -12,7 +12,6 @@ public class MusicPlayer {
     @Value("${musicPlayer.volume}")
     private int volume;
     private final List<Music> musicList;
-    private final Random r = new Random();
 
     public MusicPlayer(@Qualifier("musicList") List<Music> musicList) {
         this.musicList = musicList;
@@ -27,6 +26,6 @@ public class MusicPlayer {
     }
 
     public String playMusic() {
-        return "Now playing: " + musicList.get(r.nextInt(3)).getRandomSong();
+        return "Now playing: " + musicList.get(new Random().nextInt(3)).getRandomSong();
     }
 }
